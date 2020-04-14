@@ -1,0 +1,86 @@
+<?php
+// 
+// manage project
+// revision 版本号表 view index
+// @date 2017-02-16 14:41:01
+//
+
+?>
+
+<section class="content-header">
+<h1> 服务状态 <small> Go服务管理</small>
+</h1>
+<ol class="breadcrumb">
+<li><a href="/"><i class="fa fa-dashboard"></i> 首页</a></li>
+<li class="active">服务状态管理</li>
+</ol>
+</section>
+<section class="content">
+
+
+<div class = "box">
+<div class="box box-primary">
+<?php /*
+------------------------- 内容 start--------------------------
+*/?>
+
+<div class="box-body">
+<div class = "row ">
+<div class="col-xs-6 ">
+<h4>RevisionPath待完善数据 <span class="text-red f24"><?php echo $wait_complete?></span> 条</h4>
+</div>
+<div class="col-xs-6 ">
+<h4>RevisionPath异常数据 <span class="text-yellow f24"><?php echo $error_count?></span> 条</h4>
+
+</div>
+</div>
+<hr>
+<div class = "row ">
+
+<div class="col-xs-6 system_status">
+<form action="/backend/system_status_set" method="get">
+<h3>当前系统revision状态</h3>
+<i class="fa fa-fw fa-power-off <?php echo $revision_class?>"></i>
+<h4 class="<?php echo $revision_class?>"><?php echo $revision_msg?></h4>
+
+<div>
+    <div class="btn-group" data-toggle="buttons">
+      <span type="button" class="btn btn-default _parse_input_select_text" >是否重载:</span>
+        <?php echo \HtmlService::GenRadio(array(
+            1 => '全量重载',
+            0 => '不重载',
+        ),$reload_revision,"reload_revision")?>
+    </div>
+</div>
+<button class="btn btn-block btn-info" type="submit"><?php echo $revision_button?></button>
+<input type="hidden" value="revision" name="type">
+<input type="hidden" value="<?php echo !$revision_status?>" name="status">
+</form>
+</div>
+
+
+
+<div class="col-xs-6 system_status">
+<form action="/backend/system_status_set" method="get">
+<h3>当前系统revision path 状态</h3>
+<i class="fa fa-fw fa-power-off <?php echo $revision_path_class?>"></i>
+<h4 class="<?php echo $revision_path_class?>"><?php echo $revision_path_msg?></h4>
+
+<button class="btn btn-block btn-info" type="submit"><?php echo $revision_path_button?></button>
+<input type="hidden" value="revision_path" name="type">
+<input type="hidden" value="<?php echo !$revision_path_status?>" name="status">
+</form>
+</div>
+
+
+</div>
+</div>
+
+
+
+<?php /*
+------------------------- 内容 end --------------------------
+*/?>
+</div>
+</div>
+</section>

@@ -1,0 +1,34 @@
+.main-header .logo{padding:0 5px;}
+._parse_input_select_app_box .btn-app{ height:auto;}
+._parse_input_select_app_text{height:86px;line-height:74px;}
+._parse_input_select_app_text{height:54px;line-height:40px;}
+
+._parse_input_select_app_box .btn{ margin-top:4px;}
+.white{color:white;}
+.f14{font-size:14px;}
+.f16{font-size:16px;}
+.f18{font-size:18px;}
+.f20{font-size:20px;}
+.f22{font-size:22px;}
+.f24{font-size:24px;}
+.f26{font-size:26px;}
+
+.system_status h3{font-size:18px;}
+.system_status i{width:100px;font-size:65px;margin: 29px 0;}
+.system_status i.on{color:#00a65a}
+.system_status i.off{color:#d2d6de}
+.system_status h4{display:inline-block;font-size:36px;}
+.system_status h4.on{color:#00a65a}
+.system_status h4.off{color:#d2d6de}
+.system_status button{margin-top:15px;width:140px;}
+
+
+
+.f_right{float:right}
+.t_right{text-align::right}
+
+
+#index_list_tab th {
+cursor: pointer;
+color:#72afd2;
+}

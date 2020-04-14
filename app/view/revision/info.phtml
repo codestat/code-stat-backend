@@ -1,0 +1,62 @@
+<?php
+// 
+// manage project
+// revision 版本号 view view
+// @date 2017-12-26
+//
+?>
+
+<section class="content-header">
+<h1> 查看版本号[revision] <small>查看</small>
+</h1>
+<ol class="breadcrumb">
+<li><a href="/"><i class="fa fa-dashboard"></i> 首页</a></li>
+<li><a href="/revision"><i class=""></i>>版本号[revision]</a></li>
+<li class="active">查看</li>
+</ol>
+</section>
+<section class="content">
+<?php /*
+------------------------- 内容 start--------------------------
+*/?>
+    <div class="box box-default">
+
+<div class="box-body">
+    <div class="form-group">
+    <label for="">主键ID : </label>
+<?php echo $revision->pkid?>
+    </div>
+    <div class="form-group">
+    <label for="">版本号ID : </label>
+<?php echo $revision->r_id?>
+    </div>
+    <div class="form-group">
+    <label for="">项目名称 : </label>
+<?php echo $revision->project_name?>
+    </div>
+    <div class="form-group">
+    <label for="">提交svn的作者 : </label>
+<?php echo $revision->author?>
+    </div>
+    <div class="form-group">
+    <label for="">版本提交时间 : </label>
+<?php echo $revision->r_time?>
+    </div>
+    <div class="form-group">
+    <label for="">修改时间 : </label>
+<?php echo $revision->modify?>
+    </div>
+
+
+    <div class="box-footer">
+    <button class="btn btn-primary" id="go_back" type="submit" >返回</button>
+    </div>
+</div>
+
+     <div class="clearfix"></div>
+
+<?php /*
+------------------------- 内容 end --------------------------
+*/?>
+</div>
+</section>

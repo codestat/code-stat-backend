@@ -1,0 +1,49 @@
+<?php
+// 
+// manage project
+// revision 版本号 view view
+// @date 2017-03-01 18:11:24
+//
+?>
+
+<section class="content-header">
+<h1> <?php echo $pkid == NULL ? "创建" : "更新"?>>版本号[revision] <small>更新/创建</small>
+</h1>
+<ol class="breadcrumb">
+<li><a href="/"><i class="fa fa-dashboard"></i> 首页</a></li>
+<li><a href="/revision"><i class=""></i>>版本号[revision]</a></li>
+<li class="active"><?php echo $pkid == NULL ? "创建" : "更新"?></li>
+</ol>
+</section>
+<section class="content">
+<?php /*
+------------------------- 内容 start--------------------------
+*/?>
+    <div class="box box-default">
+    <form role="form" action="/revision/<?php echo $pkid == NULL ? "create" : "update"?>" method="post">
+
+<div class="box-body">
+    <div class="form-group">
+    <label for="">项目名称</label>
+        <input type="text" class="form-control" name="project_name" id="project_name" value="<?php echo $revision->project_name?>">
+    </div>
+    <div class="form-group">
+    <label for="">提交svn的作者</label>
+        <input type="text" class="form-control" name="author" id="author" value="<?php echo $revision->author?>">
+    </div>
+
+
+    <div class="box-footer">
+    <button class="btn btn-primary" type="submit" >提交</button>
+    <input type="hidden" name="pkid"  value="<?php echo $revision->pkid?>">
+    </div>
+</div>
+
+    </form>
+     <div class="clearfix"></div>
+
+<?php /*
+------------------------- 内容 end --------------------------
+*/?>
+</div>
+</section>

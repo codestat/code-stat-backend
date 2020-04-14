@@ -1,0 +1,71 @@
+<?php
+// 
+// manage project
+// revision_path 版本号具体的提交路径 view view
+// @date 2017-03-01 18:11:24
+//
+?>
+
+<section class="content-header">
+<h1> <?php echo $pkid == NULL ? "创建" : "更新"?>>版本号具体的提交路径[revision_path] <small>更新/创建</small>
+</h1>
+<ol class="breadcrumb">
+<li><a href="/"><i class="fa fa-dashboard"></i> 首页</a></li>
+<li><a href="/revision_path"><i class=""></i>>版本号具体的提交路径[revision_path]</a></li>
+<li class="active"><?php echo $pkid == NULL ? "创建" : "更新"?></li>
+</ol>
+</section>
+<section class="content">
+<?php /*
+------------------------- 内容 start--------------------------
+*/?>
+    <div class="box box-default">
+    <form role="form" action="/revision_path/<?php echo $pkid == NULL ? "create" : "update"?>" method="post">
+
+<div class="box-body">
+    <div class="form-group">
+    <label for="">路径的类型</label>
+
+        <select class="form-control" name="kind" id="kind">
+        <?php echo \HtmlService::GenOption($kind_list,$revision_path->kind)?>
+        </select>
+    </div>
+    <div class="form-group">
+    <label for="">提交的类型</label>
+
+        <select class="form-control" name="action" id="action">
+        <?php echo \HtmlService::GenOption($action_list,$revision_path->action)?>
+        </select>
+    </div>
+    <div class="form-group">
+    <label for="">路径</label>
+        <input type="text" class="form-control" name="path" id="path" value="<?php echo $revision_path->path?>">
+    </div>
+    <div class="form-group">
+    <label for="">提交svn的作者</label>
+        <input type="text" class="form-control" name="author" id="author" value="<?php echo $revision_path->author?>">
+    </div>
+    <div class="form-group">
+    <label for="">项目名称</label>
+        <input type="text" class="form-control" name="project_name" id="project_name" value="<?php echo $revision_path->project_name?>">
+    </div>
+    <div class="form-group">
+    <label for="">执行的diff命令</label>
+        <input type="text" class="form-control" name="cmd" id="cmd" value="<?php echo $revision_path->cmd?>">
+    </div>
+
+
+    <div class="box-footer">
+    <button class="btn btn-primary" type="submit" >提交</button>
+    <input type="hidden" name="pkid"  value="<?php echo $revision_path->pkid?>">
+    </div>
+</div>
+
+    </form>
+     <div class="clearfix"></div>
+
+<?php /*
+------------------------- 内容 end --------------------------
+*/?>
+</div>
+</section>

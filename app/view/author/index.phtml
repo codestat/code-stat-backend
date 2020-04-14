@@ -1,0 +1,136 @@
+<?php
+// 
+// manage project
+// revision 版本号表 view index
+// @date 2017-02-16 14:41:01
+//
+
+?>
+
+<section class="content-header">
+<h1> 作者 <?php echo $author_info['author']?><small> 详情分析</small>
+</h1>
+<ol class="breadcrumb">
+<li><a href="/"><i class="fa fa-dashboard"></i> 首页</a></li>
+<li><a href="/author/total"><i class="fa fa-dashboard"></i> 作者 </a></li>
+<li class="active">作者详情</li>
+</ol>
+</section>
+<section class="content">
+
+<div class="row">
+
+<div class="col-xs-3">
+<div class="small-box bg-green">
+<div class="inner">
+    <h3><small class='white f16' style="">操作</small><?php echo number_format($author_info['line'])?><sup style="font-size: 20px">行</sup></h3>
+    <p><span class="f26"><?php echo number_format($author_info['a_line'])?>++</span>  <span class="pull-right f26"><?php echo number_format($author_info['d_line'])?>--</span></p>
+    </div>
+<div class="icon">
+<i class="fa fa-fw fa-thumbs-o-up"></i>
+</div>
+</div>
+</div>
+
+
+<div class="col-xs-3">
+<div class="small-box bg-green">
+<div class="inner">
+    <h3><small class='white f16' style="">参与</small><?php echo ($author_info['p_count'])?><sup style="font-size: 20px">个项目</sup></h3>
+    <p><span class="f16"><?php echo ($author_info['p_count'])?>个项目中有提交过代码</span></p>
+    </div>
+<div class="icon">
+<i class="fa fa-fw fa-thumbs-o-up"></i>
+</div>
+</div>
+</div>
+
+<div class="col-xs-3">
+<div class="small-box bg-green">
+<div class="inner">
+    <h3><small class='white f16' style="">主力开发</small><?php echo ($main_count)?><sup style="font-size: 20px">个项目</sup></h3>
+    <p><span class="f16"><?php echo ($main_count)?>个项目中提交超过30%的代码</span></p>
+    </div>
+<div class="icon">
+<i class="fa fa-fw fa-thumbs-o-up"></i>
+</div>
+</div>
+</div>
+
+
+</div>
+<div class="row">
+
+<div class="col-xs-3">
+<div class="small-box bg-yellow">
+<div class="inner">
+    <h3><?php echo count($count_commit)?><sup style="font-size: 20px">次</sup></h3>
+    <p>提交过于频繁数</p>
+    </div>
+<div class="icon">
+<i class="fa fa-fw fa-hand-paper-o"></i>
+</div>
+</div>
+</div>
+
+<div class="col-xs-3">
+<div class="small-box bg-yellow">
+<div class="inner">
+    <h3><?php echo count($count_content)?><sup style="font-size: 20px">次</sup></h3>
+    <p>提交内容相同</p>
+    </div>
+<div class="icon">
+<i class="fa fa-fw fa-hand-paper-o"></i>
+</div>
+</div>
+</div>
+
+<div class="col-xs-3">
+<div class="small-box bg-yellow">
+<div class="inner">
+    <h3><?php echo count($count_file)?><sup style="font-size: 20px">次</sup></h3>
+    <p>提交文件重复</p>
+    </div>
+<div class="icon">
+<i class="fa fa-fw fa-hand-paper-o"></i>
+</div>
+</div>
+</div>
+
+
+</div>
+
+
+<div class = "box">
+<div class="box box-primary">
+<div class="row">
+<?php /*
+------------------------- 内容 start--------------------------
+*/?>
+
+
+<?php /*
+------------------------- 内容 end --------------------------
+*/?>
+</div>
+</div>
+</div>
+</section>
+<script>
+$(function () {
+
+    $('#begin_date').daterangepicker({
+        singleDatePicker: true,
+            format: 'YYYY-MM-DD',
+            startDate: moment()
+    });
+    $('#end_date').daterangepicker({
+        singleDatePicker: true,
+            format: 'YYYY-MM-DD',
+            startDate: moment()
+    });
+});
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+<script src="/static/plugins/daterangepicker/daterangepicker.js"></script>

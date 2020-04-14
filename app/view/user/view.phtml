@@ -1,0 +1,84 @@
+<?php
+// 
+// manage project
+// user 用户 view view
+// @date 2017-12-28
+//
+?>
+
+<section class="content-header">
+<h1> <?php echo $pkid == NULL ? "创建" : "更新"?>用户[user] <small>更新/创建</small>
+</h1>
+<ol class="breadcrumb">
+<li><a href="/"><i class="fa fa-dashboard"></i> 首页</a></li>
+<li><a href="/user"><i class=""></i>>用户[user]</a></li>
+<li class="active"><?php echo $pkid == NULL ? "创建" : "更新"?></li>
+</ol>
+</section>
+<section class="content">
+<?php /*
+------------------------- 内容 start--------------------------
+*/?>
+    <div class="box box-default">
+    <form role="form" action="/user/<?php echo $pkid== NULL ? "create" : "update"?>" method="post">
+
+<div class="box-body">
+    <div class="form-group">
+    <label for="">主键ID : </label>
+        <input type="text" class="form-control" name="pkid" id="pkid" value="<?php echo $user->pkid?>">
+    </div>
+    <div class="form-group">
+    <label for="">唯一ID : </label>
+        <input type="text" class="form-control" name="unique_id" id="unique_id" value="<?php echo $user->unique_id?>">
+    </div>
+    <div class="form-group">
+    <label for="">昵称 : </label>
+        <input type="text" class="form-control" name="nick" id="nick" value="<?php echo $user->nick?>">
+    </div>
+    <div class="form-group">
+    <label for="">邮箱 : </label>
+        <input type="text" class="form-control" name="mail" id="mail" value="<?php echo $user->mail?>">
+    </div>
+    <div class="form-group">
+    <label for="">注释 : </label>
+        <input type="text" class="form-control" name="desc" id="desc" value="<?php echo $user->desc?>">
+    </div>
+    <div class="form-group">
+    <label for="">密码 : </label>
+        <input type="text" class="form-control" name="pwd" id="pwd" value="<?php echo $user->pwd?>">
+    </div>
+    <div class="form-group">
+    <label for="">创建时间 : </label>
+        <input type="text" class="form-control" name="ctime" id="ctime" value="<?php echo $user->ctime?>">
+    </div>
+    <div class="form-group">
+    <label for="">更新时间 : </label>
+        <input type="text" class="form-control" name="modify" id="modify" value="<?php echo $user->modify?>">
+    </div>
+    <div class="form-group">
+    <label for="">头像 : </label>
+        <input type="text" class="form-control" name="avatar" id="avatar" value="<?php echo $user->avatar?>">
+    </div>
+    <div class="form-group">
+    <label for="">状态 : </label>
+
+        <select class="form-control" name="status" id="status">
+        <?php echo \HtmlService::GenOption($status_list,$user->status)?>
+        </select>
+    </div>
+
+
+    <div class="box-footer">
+    <button class="btn btn-primary" type="submit" >提交</button>
+    <input type="hidden" name="pkid"  value="<?php echo $pkid?>">
+    </div>
+</div>
+
+    </form>
+     <div class="clearfix"></div>
+
+<?php /*
+------------------------- 内容 end --------------------------
+*/?>
+</div>
+</section>

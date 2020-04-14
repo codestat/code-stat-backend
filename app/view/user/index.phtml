@@ -1,0 +1,222 @@
+<?php
+// 
+// manage project
+// user 用户 view index
+// @date 2017-12-28
+//
+
+?>
+
+<section class="content-header">
+<h1> 用户[user] <small> 列表</small>
+</h1>
+<ol class="breadcrumb">
+<li><a href="/"><i class="fa fa-dashboard"></i> 首页</a></li>
+<li class="active">用户[user]</li>
+</ol>
+</section>
+<section class="content">
+<?php /*
+------------------------- 内容 start--------------------------
+*/?>
+<div class = "box">
+<div class="box box-primary">
+<div class="box-header with-border">
+     <h3 class="box-title">筛选</h3>
+</div>
+
+<?php /*
+------------------------- 搜索开始 --------------------------
+*/?>
+<div class = "row ">
+<div class="col-xs-12">
+    <form id="index_search" role="form" action="" method="get">
+    <div class="col-xs-4">
+        <div class="box-body">
+        <div class="input-group">
+                <div class="input-group-btn">
+        <button class="btn btn-info" type="button">主键ID</button>
+        </div>
+        <?php echo \HtmlService::GenInput($search_pkid,"search_pkid")?>
+        </div>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="box-body">
+        <div class="input-group">
+                <div class="input-group-btn">
+        <button class="btn btn-info" type="button">唯一ID</button>
+        </div>
+        <?php echo \HtmlService::GenInput($search_unique_id,"search_unique_id")?>
+        </div>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="box-body">
+        <div class="input-group">
+                <div class="input-group-btn">
+        <button class="btn btn-info" type="button">昵称</button>
+        </div>
+        <?php echo \HtmlService::GenInput($search_nick,"search_nick")?>
+        </div>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="box-body">
+        <div class="input-group">
+                <div class="input-group-btn">
+        <button class="btn btn-info" type="button">邮箱</button>
+        </div>
+        <?php echo \HtmlService::GenInput($search_mail,"search_mail")?>
+        </div>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="box-body">
+        <div class="input-group">
+                <div class="input-group-btn">
+        <button class="btn btn-info" type="button">注释</button>
+        </div>
+        <?php echo \HtmlService::GenInput($search_desc,"search_desc")?>
+        </div>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="box-body">
+        <div class="input-group">
+                <div class="input-group-btn">
+        <button class="btn btn-info" type="button">密码</button>
+        </div>
+        <?php echo \HtmlService::GenInput($search_pwd,"search_pwd")?>
+        </div>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="box-body">
+        <div class="input-group">
+                <div class="input-group-btn">
+        <button class="btn btn-info" type="button">创建时间</button>
+        </div>
+        <?php echo \HtmlService::GenInput($search_ctime,"search_ctime")?>
+        </div>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="box-body">
+        <div class="input-group">
+                <div class="input-group-btn">
+        <button class="btn btn-info" type="button">更新时间</button>
+        </div>
+        <?php echo \HtmlService::GenInput($search_modify,"search_modify")?>
+        </div>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="box-body">
+        <div class="input-group">
+                <div class="input-group-btn">
+        <button class="btn btn-info" type="button">头像</button>
+        </div>
+        <?php echo \HtmlService::GenInput($search_avatar,"search_avatar")?>
+        </div>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="box-body">
+        <div class="input-group">
+                <div class="input-group-btn">
+        <button class="btn btn-info" type="button">状态</button>
+        </div>
+        <?php echo \HtmlService::GenInput($search_status,"search_status")?>
+        </div>
+        </div>
+    </div>
+
+
+    <?php /*----- 搜索截止 -------*/?>
+    <div class="clearfix"></div>
+    <div class="box-footer">
+    <div class="col-xs-12">
+    <button class="btn btn-primary" type="submit" id="sub">搜索</button>
+    <input id="order" type="hidden" name="order" value="<?php echo $order?>" />
+    <input id="sort" type="hidden" name="sort" value="<?php echo $sort?>" />
+
+            <a class="btn btn-info pull-right" href="/user/view">创建</a>
+    </div>
+    </div>
+    </form>
+
+</div>
+</div>
+<?php /*
+------------------------- 搜索结束 --------------------------
+*/?>
+
+<div class="box-body">
+<table id="index_list_tab" class="table table-bordered table-hover">
+<thead>
+<tr>
+	<th class='tr' id="list_id_unique_id" name="unique_id">唯一ID</th>
+	<th class='tr' id="list_id_nick" name="nick">昵称</th>
+	<th class='tr' id="list_id_mail" name="mail">邮箱</th>
+	<th class='tr' id="list_id_ctime" name="ctime">创建时间</th>
+	<th class='tr' id="list_id_modify" name="modify">更新时间</th>
+	<th class='tr' id="list_id_status" name="status">状态</th>
+
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+<?php 
+if($content){
+foreach($content as &$con){?>
+<tr>
+    <td><?php echo $con["unique_id"]?></td>
+    <td><?php echo $con["nick"]?></td>
+    <td><?php echo $con["mail"]?></td>
+    <td><?php echo date("Y-m-d",$con["ctime"]);?></td>
+    <td><?php echo $con["modify"]?></td>
+    <td><?php echo \HtmlService::GenText($status_list,$con["status"])?></td>
+
+<td>        <a href="/user/info?pkid=<?php echo $con['pkid']?>">查看</a>        <a href="/user/view?pkid=<?php echo $con['pkid']?>">更新</a></td>
+</tr>
+<?php 
+}}
+?>
+</tbody>
+</table>
+<div class="clearfix"></div>
+
+</div>
+
+<?php /*
+------------------------- page --------------------------
+*/?>
+<div class="box-body">
+<div class="row">
+<div class="col-sm-5">
+<div class="dataTables_info" id="example2_info" role="status" aria-live="polite">
+共<?php echo $total?>条
+,<?php echo $page_num?>页
+</div></div>
+<div class="col-sm-7">
+<div class="dataTables_paginate paging_simple_numbers" id="pagination_box">
+
+<ul class="pagination">
+<?php echo $page_html?>
+</ul>
+
+
+</div>
+</div>
+</div>
+</div>
+<?php /*
+------------------------- page end --------------------------
+*/?>
+<?php /*
+------------------------- 内容 end --------------------------
+*/?>
+</div>
+</div>
+</section>

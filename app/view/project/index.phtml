@@ -1,0 +1,140 @@
+<?php
+// 
+// manage project
+// revision 版本号表 view index
+// @date 2017-02-16 14:41:01
+//
+
+?>
+
+<section class="content-header">
+<h1> 项目<small> 概览</small>
+</h1>
+<ol class="breadcrumb">
+<li class="active">首页</li>
+</ol>
+</section>
+
+
+
+<section class="content">
+<?php /*
+------------------------- 内容 start--------------------------
+*/?>
+<div class = "box">
+<?php /*
+------------------------- 搜索开始 --------------------------
+*/?>
+
+
+<div class="box-body" >
+
+<h1>
+<?php echo $project['name']?> 
+<small> <?php echo $project['en_name']?></small>
+</h1>
+<hr/>
+
+<div class = "row ">
+
+<?php /*
+------------------------- 内容 start--------------------------
+
+| 
+</span>
+<span>
+新增<?php echo $this_year_a_line?>行
+| 
+</span>
+<span>
+删除<?php echo $this_year_d_line?>行
+</span>
+
+*/?>
+
+
+<div class="col-xs-12">
+<div class="info-box">
+    <span class="info-box-icon bg-aqua">
+    <i class="fa fa-dashboard"></i>
+    </span>
+    <div class="info-box-content">
+    <span class="info-box-number">今年来操作 <?php echo $this_year_total?> 行</span>
+    <span class="info-box-text">新增<?php echo $this_year_a_line?>行</span>
+    <span class="info-box-text">删除<?php echo $this_year_d_line?>行</span>
+    </div>
+
+</div>
+</div>
+
+<div class="clearfix"></div>
+<div class="col-xs-12">
+<div class="info-box">
+    <span class="info-box-icon bg-aqua">
+    <i class="fa fa-laptop"></i>
+    </span>
+    <div class="info-box-content">
+    <span class="info-box-number">总计操作 <?php echo $total?> 行 </span>
+    <span class="info-box-text">新增 <?php echo $a_line?> 行</span>
+    <span class="info-box-text">删除<?php echo $d_line?>行</span>
+    </div>
+
+</div>
+</div>
+
+
+
+
+
+<?php /*
+------------------------- 内容 start--------------------------
+*/?>
+
+
+</div>
+</div>
+
+
+
+
+
+<div class="box-body" >
+<button class="btn btn-primary" id="reload_project_filter" type="button" >重载过滤</button>
+<a class="btn btn-primary" href="/revision_path/index?search_project_name=<?php echo $project['en_name']?>">查看提交数据</a>
+</div>
+
+
+<script>
+$(function(){
+
+    $("#reload_project_filter").click(function(){
+
+        var _this = $(this);
+        var project = '<?php echo $project['en_name']?>';
+        $.get("/index/reload_regexp?project="+project,function(res){
+            if (res.code == 0){
+                alert("更新成功");
+            }else{
+                alert("更新失败"+res.msg);
+            }
+        },'jsonp');
+
+    });
+
+});
+</script>
+
+
+
+
+
+
+<?php /*
+------------------------- 内容 end --------------------------
+*/?>
+</div>
+</div>
+</section>
+<script>
+</script>
+

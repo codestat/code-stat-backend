@@ -1,0 +1,265 @@
+<?php
+// codestat项目
+//
+// codestat项目
+// @Description: 
+// @Version: V1.0.1
+// @Author: simonsun
+// @Mail: 4664919@qq.com
+// @Last Modified: 2017-12-27 19:38
+// @Filename: index.phtml
+//
+//
+
+?>
+
+<section class="content-header">
+<h1> 版本详情 <small> 列表</small>
+</h1>
+<ol class="breadcrumb">
+<li><a href="/"><i class="fa fa-dashboard"></i> 首页</a></li>
+
+<li class="active">版本详情</li>
+</ol>
+</section>
+<section class="content">
+<?php /*
+------------------------- 内容 start--------------------------
+*/?>
+<div class = "box">
+<div class="box box-primary">
+<div class="box-header with-border">
+     <h3 class="box-title">筛选</h3>
+</div>
+
+<?php /*
+------------------------- 搜索开始 --------------------------
+*/?>
+<div class = "row ">
+<div class="col-xs-12">
+    <form id="index_search" role="form" action="" method="get">
+    <div class="col-xs-4">
+        <div class="box-body">
+        <div class="input-group">
+        <div class="input-group-btn">
+        <button class="btn btn-info" type="button">提交svn的作者</button>
+        </div>
+        <?php echo \HtmlService::GenInput($search_author,"search_author")?>
+        </div>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="box-body">
+        <div class="input-group">
+        <div class="input-group-btn">
+        <button class="btn btn-info" type="button">项目名称</button>
+        </div>
+        <?php echo \HtmlService::GenInput($search_project_name,"search_project_name")?>
+        </div>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="box-body">
+        <div class="input-group">
+                <div class="input-group-btn">
+        <button class="btn btn-info" type="button">路径</button>
+        </div>
+        <?php echo \HtmlService::GenInput($search_path,"search_path")?>
+        </div>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="box-body">
+        <div class="input-group">
+                <div class="input-group-btn">
+        <button class="btn btn-info" type="button">版本号ID</button>
+        </div>
+        <?php echo \HtmlService::GenInput($search_r_id,"search_r_id")?>
+        </div>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="box-body">
+        <div class="input-group">
+                <div class="input-group-btn">
+        <button class="btn btn-info" type="button">增加行数</button>
+        </div>
+        <?php echo \HtmlService::GenInput($search_a_line,"search_a_line")?>
+        </div>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="box-body">
+        <div class="input-group">
+                <div class="input-group-btn">
+        <button class="btn btn-info" type="button">减少行数</button>
+        </div>
+        <?php echo \HtmlService::GenInput($search_d_line,"search_d_line")?>
+        </div>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="box-body">
+        <div class="input-group">
+                <div class="btn-group" data-toggle="buttons">
+        <button class="btn btn-default" type="button">路径的类型</button>
+        <?php echo \HtmlService::GenRadio($kind_list,$search_kind,"search_kind")?>
+        </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="col-xs-4">
+        <div class="box-body">
+        <div class="input-group">
+                <div class="btn-group" data-toggle="buttons">
+        <button class="btn btn-default" type="button">状态</button>
+        <?php echo \HtmlService::GenCheckbox($status_list,$search_status,"search_status")?>
+        </div>
+        </div>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="box-body">
+        <div class="input-group">
+                <div class="btn-group" data-toggle="buttons">
+        <button class="btn btn-default" type="button">提交的类型</button>
+        <?php echo \HtmlService::GenCheckbox($action_list,$search_action,"search_action")?>
+        </div>
+        </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-xs-4">
+        <div class="box-body">
+        <div class="input-group">
+        <div class="input-group-btn">
+    
+        <button class="btn btn-info" type="button"><i class="fa fa-calendar"></i> 起始时间</button>
+        </div>
+        <input type="text" class="form-control pull-right" name="begin_date" id="begin_date" value="<?php 
+if (is_object($time)){
+    echo $time->begin_date;
+}
+?>">
+        </div>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="box-body">
+        <div class="input-group">
+        <div class="input-group-btn">
+    
+        <button class="btn btn-info" type="button"><i class="fa fa-calendar"></i> 结束时间</button>
+        </div>
+        <input type="text" class="form-control pull-right" name="end_date" id="end_date" value="<?php 
+if (is_object($time)){
+    echo $time->end_date;
+}
+?>">
+        </div>
+        </div>
+    </div>
+
+
+
+
+    <?php /*----- 搜索截止 -------*/?>
+    <div class="clearfix"></div>
+    <div class="box-footer">
+    <div class="col-xs-12">
+    <button class="btn btn-primary" type="submit" id="sub">搜索</button>
+    <input id="order" type="hidden" name="order" value="<?php echo $order?>" />
+    <input id="sort" type="hidden" name="sort" value="<?php echo $sort?>" />
+
+    
+    </div>
+    </div>
+    </form>
+
+</div>
+</div>
+<?php /*
+------------------------- 搜索结束 --------------------------
+*/?>
+
+<div class="box-body">
+<table id="index_list_tab" class="table table-bordered table-hover">
+<thead>
+<tr>
+	<th class='tr' id="list_id_r_id" name="r_id">版本号ID</th>
+	<th class='tr' id="list_id_project_name" name="project_name">项目名称</th>
+	<th class='tr' id="list_id_author" name="author">作者</th>
+	<th class='tr' id="list_id_r_time" name="r_time">提交时间</th>
+	<th class='tr' id="list_id_kind" name="kind">文件类型</th>
+	<th class='tr' id="list_id_action" name="action">类型</th>
+	<th class='tr' id="list_id_path" name="path">路径</th>
+	<th class='tr' id="list_id_a_line" name="a_line">增加行数</th>
+	<th class='tr' id="list_id_d_line" name="d_line">减少行数</th>
+	<th class='tr' id="list_id_status" name="status">状态</th>
+
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+<?php 
+if($content){
+foreach($content as &$con){?>
+<tr>
+    <td><a href='/revision_path/index?search_r_id=<?php echo $con['r_id']?>'><?php echo $con['r_id']?></a></td>
+    <td><a href='/project/index?project=<?php echo $con['project_name']?>'><?php echo $con["project_name"]?></a></td>
+    <td><?php echo $con["author"]?></td>
+    <td><?php echo date("Y-m-d",$con["r_time"]);?></td>
+    <td><?php echo \HtmlService::GenText($kind_list,$con["kind"])?></td>
+    <td><?php echo \HtmlService::GenText($action_list,$con["action"])?></td>
+    <td><?php echo $con["path"]?></td>
+    <td><?php echo $con["a_line"]?></td>
+    <td><?php echo $con["d_line"]?></td>
+    <td><?php echo \HtmlService::GenText($status_list,$con["status"])?></td>
+
+<td>        
+     <a href="/revision_path/svn_info?pkid=<?php echo $con['pkid']?>">查看</a>
+</td>
+</tr>
+<?php 
+}}
+?>
+</tbody>
+</table>
+<div class="clearfix"></div>
+
+</div>
+
+<?php /*
+------------------------- page --------------------------
+*/?>
+<div class="box-body">
+<div class="row">
+<div class="col-sm-5">
+<div class="dataTables_info" id="example2_info" role="status" aria-live="polite">
+共<?php echo $total?>条
+,<?php echo $page_num?>页
+</div></div>
+<div class="col-sm-7">
+<div class="dataTables_paginate paging_simple_numbers" id="pagination_box">
+
+<ul class="pagination">
+<?php echo $page_html?>
+</ul>
+
+
+</div>
+</div>
+</div>
+</div>
+<?php /*
+------------------------- page end --------------------------
+*/?>
+<?php /*
+------------------------- 内容 end --------------------------
+*/?>
+</div>
+</div>
+</section>

@@ -1,0 +1,133 @@
+<?php
+// codestat项目
+//
+// codestat项目
+// @Description: 
+// @Version: V1.0.1
+// @Author: simonsun
+// @Mail: 4664919@qq.com
+// @Last Modified: 2017-12-27 19:38
+// @Filename: index.phtml
+//
+//
+?>
+
+<section class="content-header">
+<h1> 查看版本号具体的提交路径[revision_path] <small>查看</small>
+</h1>
+<ol class="breadcrumb">
+<li><a href="/"><i class="fa fa-dashboard"></i> 首页</a></li>
+<li><a href="/revision_path"><i class=""></i>>版本号具体的提交路径[revision_path]</a></li>
+<li class="active">查看</li>
+</ol>
+</section>
+<section class="content">
+<?php /*
+------------------------- 内容 start--------------------------
+ */?>
+    <div class="box box-default">
+
+<div class="box-body" >
+
+<div class = "row ">
+
+<?php /*
+------------------------- 内容 start--------------------------
+ */?>
+
+<div class="col-xs-6">
+<div class="info-box">
+    <span class="info-box-icon bg-aqua">
+    <i class="fa fa-dashboard"></i>
+    </span>
+    <div class="info-box-content">
+    <span class="info-box-number">操作行数</span>
+    <span class="info-box-text">+ <?php echo $revision_path->a_line?></span>
+    <span class="info-box-text">- <?php echo  $revision_path->d_line?></span>
+    <span class="info-box-text">共 <?php echo  $revision_path->d_line+$revision_path->a_line?></span>
+    </div>
+
+</div>
+</div>
+
+<div class="col-xs-6">
+<div class="info-box">
+    <div class="info-box-content">
+    <span class="info-box-number">作者：<?php echo $revision_path->author?></span>
+    <span class="info-box-text">项目：<?php echo $revision_path->project_name?></span>
+    <span class="info-box-text">时间：<?php echo date("Y-m-d H:i:s",$revision_path->r_time);?></span>
+    <span class="info-box-text">状态：  <?php echo \HtmlService::GenText($status_list,$revision_path->status)?></span>
+    </div>
+
+</div>
+</div>
+    <!-- /.info-box-content -->
+<?php /*
+------------------------- 内容 start--------------------------
+ */?>
+
+
+</div>
+</div>
+
+<div class="box-body" style="font-size:16px">
+
+
+<?php if(!empty($cmd )) {  
+$key = 0;
+?>
+<?php foreach($cmd as $con) {  
+$key++;
+?>
+
+<p 
+<?php if(substr($con,0,1) === '-' ||
+$revision_path->action == "D" 
+
+
+){ ?>
+class="text-red"
+<?php }elseif(substr($con,0,1) === '+' ||
+$revision_path->action == "A" 
+
+){ 
+
+?>
+class="text-green"
+<?php }?>
+>
+
+<span style="color:#999;margin:0px 5px; ">
+<?php echo ($key); ?>
+</span>
+<?php echo htmlspecialchars($con); ?>
+</p>
+
+
+<?php } ?>
+
+<?php }else{ ?>
+
+
+执行命令失败：
+<br />
+
+<?php echo $revision_path->cmd?>
+
+<br />
+错误详情：
+
+<br />
+<?php echo $msg?>
+
+<?php } ?>
+
+</div>
+
+     <div class="clearfix"></div>
+
+<?php /*
+------------------------- 内容 end --------------------------
+ */?>
+</div>
+</section>

@@ -1,0 +1,136 @@
+<?php
+// codestat项目
+//
+// codestat项目
+// @Description: 
+// @Version: V1.0.1
+// @Author: simonsun
+// @Mail: 4664919@qq.com
+// @Last Modified: 2017-12-27 19:38
+// @Filename: index.phtml
+//
+//
+
+?>
+
+<section class="content-header">
+<h1> 首页 
+</h1>
+<ol class="breadcrumb">
+<li class="active">首页</li>
+</ol>
+</section>
+<section class="content">
+<?php /*
+------------------------- 内容 start--------------------------
+ */?>
+<div class = "box">
+<?php /*
+------------------------- 搜索开始 --------------------------
+ */?>
+
+
+<div class="box-body" >
+
+<div class = "row ">
+
+<?php /*
+------------------------- 内容 start--------------------------
+
+| 
+</span>
+<span>
+新增<?php echo $this_year_a_line?>行
+| 
+</span>
+<span>
+删除<?php echo $this_year_d_line?>行
+</span>
+
+ */?>
+
+<div class="col-xs-12">
+<div class="info-box">
+    <span class="info-box-icon bg-aqua">
+    <i class="fa fa-dashboard"></i>
+    </span>
+    <div class="info-box-content">
+    <span class="info-box-number">今年来操作 <?php echo $this_year_total?> 行</span>
+    <span class="info-box-text">新增<?php echo $this_year_a_line?>行</span>
+    <span class="info-box-text">删除<?php echo $this_year_d_line?>行</span>
+    </div>
+
+</div>
+</div>
+
+<div class="clearfix"></div>
+<div class="col-xs-12">
+<div class="info-box">
+    <span class="info-box-icon bg-aqua">
+    <i class="fa fa-laptop"></i>
+    </span>
+    <div class="info-box-content">
+    <span class="info-box-number">总计操作 <?php echo $total?> 行 </span>
+    <span class="info-box-text">新增 <?php echo $a_line?> 行</span>
+    <span class="info-box-text">删除<?php echo $d_line?>行</span>
+    </div>
+
+</div>
+</div>
+
+<?php /*
+------------------------- 内容 start--------------------------
+ */?>
+
+
+</div>
+</div>
+
+
+
+<div class="row">
+<div class="col-md-12">
+<div class="box-header">
+<h3 class="box-title" >项目列表</h3>
+</div>
+    <?php foreach ($apps as $app){?>
+<a href="/project/index?project=<?php echo $app['en_name']?>" class="btn btn-app" style="height:auto">
+<i class="fa fa-inbox"></i> 
+<?php echo $app['name']?><br>
+<?php echo $app['en_name']?>
+</a>
+    <?php }?>
+</div>
+</div>
+
+
+<div class="row">
+<div class="col-md-12">
+<div class="box-header">
+<h3 class="box-title" >用户列表</h3>
+</div>
+    <?php foreach ($authors as $author){?>
+<a href="/author/index?author=<?php echo $author?>" class="btn btn-app" style="height:auto">
+<i class="fa fa-inbox"></i> 
+<?php echo $author?><br>
+</a>
+    <?php }?>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<?php /*
+------------------------- 内容 end --------------------------
+ */?>
+</div>
+</div>
+</section>
+ <script>
+ </script>
+

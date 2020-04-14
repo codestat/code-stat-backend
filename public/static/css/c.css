@@ -1,0 +1,67 @@
+/*html{overflow-x: hidden;}*/
+.public_t{ margin-top: 62px;}
+h1,h2,h3,h4{font-family:"arial","微软雅黑"}
+.cur{cursor: pointer;}
+.fs_999{color:#999}
+
+.logo{float: left; margin: 4px 14px 0 0;}
+
+#menu_left ul{background: #fcfcfc;border-right:#f3f3f3 1px solid;}
+.navbar-brand-custom{float:left; margin: 10px 12px 0 14px;}
+
+footer{background-color:#ececec; height:80px; padding-top:10px; margin-top: 10px;}
+.footer_logo{float:right; padding:10px 30px 10px 0;  border-right:1px #d8d8d8 solid; }
+.footer_right{ font-size: 12px;}
+.footer_right li a{padding: 5px 10px 5px 0;color: #666;}
+.footer_right li a i{color: #999; padding-left: 5px;}
+
+/*CSS flickr style pagination*/
+div.flickr{font-size: 14px;text-align:center;padding:3px;float:left;width:100%;margin-top:10px;margin-right:2px;margin-bottom:3px;margin-left:3px;}
+div.flickr a{border-right:#dedfde 1px solid;padding:5px 11px ;background-position:50% bottom;border-top:#dedfde 1px solid;border-left:#dedfde 1px solid;color:#0061de;margin-right:5px;border-bottom:#dedfde 1px solid;text-decoration:none}
+div.flickr a:hover{border-right:#000 1px solid;border-top:#000 1px solid;background-image:none;border-left:#000 1px solid;color:#fff;border-bottom:#000 1px solid;background-color:#0061de}
+div.meneame a:active{border-right:#000 1px solid;border-top:#000 1px solid;background-image:none;border-left:#000 1px solid;color:#fff;border-bottom:#000 1px solid;background-color:#0061de}
+div.flickr SPaN.current{ color: #FF0084;font-size: 16px;font-weight: bold;margin-right: 3px;padding: 4px 9px;}
+div.flickr SPaN.disabled{padding-right:6px;padding-left:6px;padding-bottom:2px;color:#adaaad;margin-right:3px;padding-top:2px}
+
+
+/* index search */
+.search_show{ position: relative; border:1px dashed  #ddd; margin: 30px 0;padding: 0; border-radius: 8px;}
+.search_show .search_show_div{display: none;}
+.search_show .search_but{ padding: 0 9px;position: absolute;right:20px; bottom: -10px; height: 20px;cursor: pointer; background: #fff;}
+.search_show .search_but:hover{color:red;}
+#list_table thead{cursor: pointer;}
+
+/* dt select */
+.dt_select{margin: 0 5px;padding: 2px 5px; border: 1px solid #eee;display: inline-block;cursor: pointer; line-height: 24px;}
+.dt_selected{ color: green;}
+.dt_select .glyphicon{font-size: 22px; margin-right: 5px; color: #ccc;}
+.dt_selected .glyphicon{color: yellowgreen;}
+.dt_select input {display: none;}
+.dt_select span {float: left; }
+
+
+.b0 {border: 0;}
+.d_b{display: inline-block;}
+
+.stock_input_div{width:24%; float: left;margin: 8px 1% 0 0;}
+
+.iconbg_radius {border-radius:100px; background: #eee; padding: 5px 8px; margin: 3px 5px 0 0;float: left;opacity: 0.8;}
+
+#list_form td a.btn,#list_form td  .btn-sm{ padding: 2px 6px;}
+#list_form td {vertical-align: middle;}
+
+/**
+权限管理
+*/
+#relation_select .dt_select span.badge{float: right;margin: 3px ;}
+/*.dt_select span.badge{float: right;margin: 3px ;}*/
+#relation_select .dt_select input{display: inline-block;}
+#relation_select .dt_select {margin: 2px 2px 3px 0;border-radius:  4px;}
+
+
+#index_search select {float:left}
+#index_search .btn {float:left}
+
+
+body{overflow:auto;}
+.ml-10{margin-left:10px;}

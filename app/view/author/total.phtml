@@ -1,0 +1,142 @@
+<?php
+// 
+// manage project
+// revision 版本号表 view index
+// @date 2017-02-16 14:41:01
+//
+
+?>
+
+<section class="content-header">
+<h1> 作者 <small> 详情分析</small>
+</h1>
+<ol class="breadcrumb">
+<li><a href="/"><i class="fa fa-dashboard"></i> 首页</a></li>
+<li class="active">作者统计</li>
+</ol>
+</section>
+<section class="content">
+
+
+<div class = "box">
+<div class="box box-primary">
+<div class="row">
+<?php /*
+------------------------- 内容 start--------------------------
+*/?>
+
+<?php /*------------------------- 作者统计--------------------------*/?>
+<div class="col-md-12">
+<div class="box">
+        <div class="box-header with-border">
+              <h3 class="box-title">提交行数TOP</h3><small> </small>
+        </div>
+            <!-- /.box-header -->
+        <div class="box-body">
+          <table class="table table-bordered">
+                <tbody><tr>
+                  <th style="">序号</th>
+                  <th>作者</th>
+                  <th>提交文件数</th>
+                  <th>新增行数</th>
+                  <th>删除行数</th>
+                  <th>操作行数</th>
+        </tr>
+<?php foreach ($top_commit as  $key => $data){?>
+        <tr>
+                <td><?php echo $key+1?>.</td>
+                  <td><a href="/author/index?author=<?php echo $data['author']?>"><?php echo $data['author']?></a></td>
+                  <td><?php echo $data['r_id']?></td>
+                  <td><?php echo $data['a_line']?></td>
+                  <td><?php echo $data['d_line']?></td>
+                  <td class="text-primary f18"><?php echo $data['line']?></td>
+                </tr>
+<?php }?>
+              </tbody></table>
+            </div>
+          </div>
+</div>
+
+
+<?php /*------------------------- 作者统计--------------------------*/?>
+<div class="col-md-12">
+<div class="box">
+        <div class="box-header with-border">
+              <h3 class="box-title">参与项目TOP</h3><small> </small>
+        </div>
+            <!-- /.box-header -->
+        <div class="box-body">
+          <table class="table table-bordered">
+                <tbody><tr>
+                  <th style="">序号</th>
+                  <th>作者</th>
+                  <th>参与项目数</th>
+        </tr>
+<?php foreach ($top_project as  $key => $data){?>
+        <tr>
+                <td><?php echo $key+1?>.</td>
+                  <td><a href="/author/index?author=<?php echo $data['author']?>"><?php echo $data['author']?></a></td>
+                  <td class="text-primary f18"><?php echo $data['cp']?></td>
+                </tr>
+<?php }?>
+              </tbody></table>
+            </div>
+          </div>
+</div>
+
+
+<?php /*------------------------- 作者统计--------------------------*/?>
+<div class="col-md-12">
+<div class="box">
+        <div class="box-header with-border">
+              <h3 class="box-title">核心开发项目TOP</h3><small> </small>
+        </div>
+            <!-- /.box-header -->
+        <div class="box-body">
+          <table class="table table-bordered">
+                <tbody><tr>
+                  <th style="">序号</th>
+                  <th>作者</th>
+                  <th>数量</th>
+        </tr>
+<?php foreach ($top_main_count as  $key => $data){?>
+        <tr>
+                <td><?php echo $key+1?>.</td>
+                  <td><a href="/author/index?author=<?php echo $data['author']?>"><?php echo $data['author']?></a></td>
+                  <td class="text-primary f18"><?php echo $data['count']?></td>
+                </tr>
+<?php }?>
+              </tbody></table>
+            </div>
+          </div>
+</div>
+
+
+
+
+
+<?php /*
+------------------------- 内容 end --------------------------
+*/?>
+</div>
+</div>
+</div>
+</section>
+<script>
+$(function () {
+
+    $('#begin_date').daterangepicker({
+        singleDatePicker: true,
+            format: 'YYYY-MM-DD',
+            startDate: moment()
+    });
+    $('#end_date').daterangepicker({
+        singleDatePicker: true,
+            format: 'YYYY-MM-DD',
+            startDate: moment()
+    });
+});
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+<script src="/static/plugins/daterangepicker/daterangepicker.js"></script>
